@@ -1,0 +1,88 @@
+using System;
+using System.Collections.Generic;
+
+
+namespace učím_se_programming
+{
+    public class Program
+    {
+
+
+
+        public static void Main(string[] args)
+        {
+
+            /////dotnet publish -c Release -r win10-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true 
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Black;
+        Label1:
+            Console.WriteLine("Zadejte číslo a zjistěte, čím je dělitelné");
+            long num01 = Convert.ToInt64(Console.ReadLine());
+            int pocet = 1;
+            int pocet1 = 0;
+            long zbytek = num01 / 2;
+            string numero = Convert.ToString(num01);
+            if (num01 == -1 || num01 == 0 || num01 == 1)
+            {
+                Console.WriteLine("Číslo má jednoho dělitele, konkrétně " + num01 + "\n\n");
+                goto Label1;
+            }
+
+            if (numero.StartsWith("-"))
+            {
+                for (long i = num01; i < 0; i++)
+                {
+
+                    if (num01 % i == 0)
+                    {
+                        Console.Write(i + "; ");
+                        pocet1++;
+
+                    }
+
+                    else
+                    {
+
+                    }
+                }
+                Console.WriteLine("\nČíslo má " + pocet1 + " dělitelů, z toho 1 a " + num01 + "\n\n");
+                goto Label1;
+            }
+            else
+            {
+
+                for (int i = 1; i <= zbytek; i++)
+                {
+
+                    if (num01 % i == 0)
+                    {
+                        Console.Write(i + "; ");
+                        pocet++;
+                    }
+
+                    else
+                    {
+
+                    }
+                }
+                Console.Write(num01);
+            }
+
+            if (pocet == 2)
+            {
+                Console.WriteLine("\nTohle je prvočíslo");
+            }
+            else
+            {
+                Console.WriteLine("\nČíslo má " + pocet + " dělitelů, z toho 1 a " + num01);
+            }
+
+
+            Console.WriteLine("\n\n");
+            goto Label1;
+        }
+    }
+}
+
+
